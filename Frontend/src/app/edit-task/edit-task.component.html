@@ -1,0 +1,65 @@
+<div class="container mt-5 card col-4 shadow p-3 mb-5 bg-body-tertiary rounded">
+  <form [formGroup]="taskform" (ngSubmit)="onsubmit()">
+    <div class="text-end">
+      <button type="button" class="btn btn-lg" (click)="cancel()">
+        <i class="bi bi-x-circle-fill"></i>
+      </button>
+    </div>
+    <div class="col-6 offset-3 text-center"><h1>Update Task</h1></div>
+    <div class="m-4">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="email"
+          class="form-control"
+          id="title"
+          formControlName="title"
+        />
+        <div
+          *ngIf="taskform.controls['title'].touched"
+          id="emailHelp"
+          class="form-text"
+        >
+          <p
+            *ngIf="taskform.controls['title'].hasError('required')"
+            class="text-danger"
+          >
+            Title is required
+          </p>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          formControlName="description"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="dueDate" class="form-label">Due date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="dueDate"
+          formControlName="dueDate"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="Priority" class="form-label">Priority</label>
+        <select
+          name="Priority"
+          id="Priority"
+          class="form-control"
+          formControlName="priority"
+        >
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

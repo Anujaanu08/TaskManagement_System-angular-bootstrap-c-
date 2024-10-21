@@ -1,0 +1,42 @@
+<p class="m-5"><a class="text-decoration-none btn btn-primary btn-lg" routerLink="users">USERS</a></p>
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="d-flex justify-content-between">
+      <input
+        class="m-4 p-2"
+        type="search"
+        placeholder="Search Task here"
+        aria-label="Search" [(ngModel)]="searchdata" />
+      <button class="btn btn-dark m-4" (click)="Addtask()">Add new Task</button>
+    </div>
+
+    <div class="card-body">
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">DueDate</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks | search:searchdata">
+            <th scope="row">{{ task.id }}</th>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.dueDate | date : "dd-MMM-YYYY" }}</td>
+            <td class="fw-bold" [ngStyle]="{'color': task.priority==='high'? 'red': task.priority==='medium'? 'orange':'green'}" >{{ task.priority }}</td>
+            <td>
+              <button class="btn btn-warning mx-3" (click)="editTask(task.id)"><i class="bi bi-pencil-square"></i></button>
+              <button class="btn btn-danger" (click)="deleteTask(task.id)"><i class="bi bi-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

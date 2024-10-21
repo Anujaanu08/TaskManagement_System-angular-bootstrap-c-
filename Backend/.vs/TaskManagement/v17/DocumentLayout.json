@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|x:\\angular\\19.10.24-labwork\\backend\\taskmanagement\\taskmanagement\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|solutionrelative:taskmanagement\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|x:\\angular\\19.10.24-labwork\\backend\\taskmanagement\\taskmanagement\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|solutionrelative:taskmanagement\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|x:\\angular\\19.10.24-labwork\\backend\\taskmanagement\\taskmanagement\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|solutionrelative:taskmanagement\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|x:\\angular\\19.10.24-labwork\\backend\\taskmanagement\\taskmanagement\\controllers\\taskitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|solutionrelative:taskmanagement\\controllers\\taskitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|x:\\angular\\19.10.24-labwork\\backend\\taskmanagement\\taskmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|solutionrelative:taskmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|x:\\angular\\19.10.24-labwork\\backend\\taskmanagement\\taskmanagement\\databae\\taskdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{576820D4-C5E3-47D0-9956-7369405813A3}|TaskManagement\\TaskManagement.csproj|solutionrelative:taskmanagement\\databae\\taskdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "TaskManagement\\Controllers\\UsersController.cs",
+              "ToolTip": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "TaskManagement\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T04:33:40.128Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TaskItemsController.cs",
+              "DocumentMoniker": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\Controllers\\TaskItemsController.cs",
+              "RelativeDocumentMoniker": "TaskManagement\\Controllers\\TaskItemsController.cs",
+              "ToolTip": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\Controllers\\TaskItemsController.cs",
+              "RelativeToolTip": "TaskManagement\\Controllers\\TaskItemsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T04:31:36.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "User.cs",
+              "DocumentMoniker": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\Models\\User.cs",
+              "RelativeDocumentMoniker": "TaskManagement\\Models\\User.cs",
+              "ToolTip": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\Models\\User.cs",
+              "RelativeToolTip": "TaskManagement\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T04:22:05.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaskItem.cs",
+              "DocumentMoniker": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\Models\\TaskItem.cs",
+              "RelativeDocumentMoniker": "TaskManagement\\Models\\TaskItem.cs",
+              "ToolTip": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\Models\\TaskItem.cs",
+              "RelativeToolTip": "TaskManagement\\Models\\TaskItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T04:21:53.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TaskDbContext.cs",
+              "DocumentMoniker": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\databae\\TaskDbContext.cs",
+              "RelativeDocumentMoniker": "TaskManagement\\databae\\TaskDbContext.cs",
+              "ToolTip": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\databae\\TaskDbContext.cs",
+              "RelativeToolTip": "TaskManagement\\databae\\TaskDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T04:18:58.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\Program.cs",
+              "RelativeDocumentMoniker": "TaskManagement\\Program.cs",
+              "ToolTip": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\Program.cs",
+              "RelativeToolTip": "TaskManagement\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T04:18:11.135Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
