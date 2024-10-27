@@ -1,10 +1,7 @@
-<div class="container mt-5 card col-4 shadow p-3 mb-5 bg-body-tertiary rounded">
+<div class="container mt-3 card col-4 shadow p-3 mb-5 bg-body-tertiary rounded">
     <form [formGroup]="userform" (ngSubmit)="onsubmit()">
-      <div class="text-end">
-        <button type="button" class="btn btn-lg" (click)="cancel()"><i class="bi bi-x-circle-fill"></i></button>
-      </div>
-      
-      <div class="col-6 offset-3  text-center"><h1>Add new User</h1></div>
+            
+      <div class="text-center"><h1>Add new User</h1></div>
       <div class="m-4">
 
         <div class="mb-3">
@@ -21,15 +18,15 @@
         </div>
 
         <div class="mb-3">
-          <label for="phone" class="form-label">Contatct Number</label>
+          <label for="password" class="form-label">Password</label>
           <input
             type="text"
             class="form-control"
-            id="phone"
-            formControlName="phone"
+            id="password"
+            formControlName="password"
           />
-          <div *ngIf="userform.controls['phone'].touched"  class="form-text">
-            <p *ngIf="userform.controls['phone'].hasError('required')" class="text-danger">Contact number is required</p>
+          <div *ngIf="userform.controls['password'].touched"  class="form-text">
+            <p *ngIf="userform.controls['password'].hasError('required')" class="text-danger">Password is required</p>
             </div>
          </div>
 
@@ -43,19 +40,48 @@
           />
           <div *ngIf="userform.controls['email'].touched"  class="form-text">
             <p *ngIf="userform.controls['email'].hasError('email')" class="text-danger">Invalid email</p>
+            <p *ngIf="userform.controls['email'].hasError('required')" class="text-danger">Email is required </p>
             </div>
        </div>
 
-        <div class="mb-3">
-          <label for="address" class="form-label">Address</label>
+       <div formGroupName="address">
+        <div class="mb-3" >
+          <label for="addressline1" class="form-label">Address Line 1</label>
           <input
             type="text"
             class="form-control"
-            id="address"
-            formControlName="address"
-          />
+            id="addressline1"
+            formControlName="addressline1"/>
+            <div *ngIf="userform.get('address.addressline1')?.touched"  class="form-text">
+              <p *ngIf="userform.get('address.addressline1')?.invalid" class="text-danger">Address is required </p>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="mb-3" >
+          <label for="addressline2" class="form-label">Address Line 2</label>
+          <input
+            type="text"
+            class="form-control"      
+            id="addressline2"
+            formControlName="addressline2"/>
+        </div>
+         <div class="mb-3" >
+          <label for="city" class="form-label">City</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            formControlName="city"/>
+        </div>
+       </div>
+
+       <div class="mb-3" >
+<ul>
+  <li *ngFor="let task of tasks">{{task.title}}</li>
+</ul>
+       </div>
+
+        <button type="submit" [disabled]="userform.invalid" class="btn btn-primary">Submit</button>
+        <button type="button"  class="btn btn-secondary ms-2" (click)="cancel()">Cancle</button>
   
       </div>
     </form>

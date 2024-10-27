@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Task } from './taskr-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,16 @@ return this.http.delete(this.url + "/" + userId)
 export interface User{
   id:number;
   name:string;
-  phone:string;
+  password:string;
   email:string;
-  address:string;
+  address?:Address;
+  tasks?:Task []
+}
+
+export interface Address{
+  id:Number;
+  addressline1:string;
+  addressline2:string;
+  city:string;
+  userId? : number;
 }

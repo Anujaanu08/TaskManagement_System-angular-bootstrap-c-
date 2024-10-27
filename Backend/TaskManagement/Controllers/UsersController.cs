@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TaskManagement.Models;
 using TaskManagement.databae;
+using TaskManagement.Models;
 
 namespace TaskManagement.Controllers
 {
@@ -25,14 +20,14 @@ namespace TaskManagement.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> Getusers()
         {
-            return await _context.users.ToListAsync();
+            return await _context.users.Include(a=>a.Address).Include(b => b.Tasks).ToListAsync();
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = await _context.users.FindAsync(id);
+            var user = await _context.users.Include(a=>a.Address).Include(b=>b.Tasks).FirstOrDefaultAsync(b=>b.id==id);
 
             if (user == null)
             {
@@ -52,7 +47,8 @@ namespace TaskManagement.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry<User>(user).State = EntityState.Modified;
+            _context.Entry<Address>(user.Address).State = EntityState.Modified;
 
             try
             {

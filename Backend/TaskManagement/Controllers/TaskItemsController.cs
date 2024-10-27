@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TaskManagement.Models;
 using TaskManagement.databae;
+using TaskManagement.Models;
 
 namespace TaskManagement.Controllers
 {
@@ -25,14 +20,14 @@ namespace TaskManagement.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TaskItem>>> Gettasks()
         {
-            return await _context.tasks.ToListAsync();
+            return await _context.tasks.Include(a=>a.Assignee).ToListAsync();
         }
 
         // GET: api/TaskItems/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TaskItem>> GetTaskItem(int id)
         {
-            var taskItem = await _context.tasks.FindAsync(id);
+            var taskItem = await _context.tasks.Include(i=>i.Assignee).FirstOrDefaultAsync(f=>f.Id == id);
 
             if (taskItem == null)
             {

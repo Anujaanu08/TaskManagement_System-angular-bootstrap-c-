@@ -13,15 +13,17 @@ export class UserListComponent implements OnInit {
   constructor(private router: Router, private userService: UserService, private toastr: ToastrService) { }
 
   users: any[] = [];
-  searchdata: any;
+  searchdata: string='';
 
   ngOnInit(): void {
     this.getUsers();
-  }
+ }
 
   getUsers() {
-    this.userService.getUsers().subscribe(data =>
+    this.userService.getUsers().subscribe(data =>{
       this.users = data
+      console.log(this.users);
+    }
     )
   }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\TaskManagement.csproj": {}
+    "X:\\Angular\\TaskManagement-labwork\\TaskManagement\\Backend\\TaskManagement\\TaskManagement.csproj": {}
   },
   "projects": {
-    "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\TaskManagement.csproj": {
+    "X:\\Angular\\TaskManagement-labwork\\TaskManagement\\Backend\\TaskManagement\\TaskManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\TaskManagement.csproj",
+        "projectUniqueName": "X:\\Angular\\TaskManagement-labwork\\TaskManagement\\Backend\\TaskManagement\\TaskManagement.csproj",
         "projectName": "TaskManagement",
-        "projectPath": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\TaskManagement.csproj",
+        "projectPath": "X:\\Angular\\TaskManagement-labwork\\TaskManagement\\Backend\\TaskManagement\\TaskManagement.csproj",
         "packagesPath": "C:\\Users\\UT01463\\.nuget\\packages\\",
-        "outputPath": "X:\\Angular\\19.10.24-labwork\\backend\\TaskManagement\\TaskManagement\\obj\\",
+        "outputPath": "X:\\Angular\\TaskManagement-labwork\\TaskManagement\\Backend\\TaskManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\UT01463\\AppData\\Roaming\\NuGet\\NuGet.Config",

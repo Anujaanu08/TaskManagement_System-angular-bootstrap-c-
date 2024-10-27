@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { UsersearchPipe } from './usersearch.pipe';
+
 
 @NgModule({
   declarations: [
@@ -25,8 +27,8 @@ import { UserFormComponent } from './user-form/user-form.component';
     EditTaskComponent,
     UserListComponent,
     UserFormComponent,
-   
-  ],
+    UsersearchPipe,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,HttpClientModule,CommonModule,ReactiveFormsModule,FormsModule, BrowserAnimationsModule, 

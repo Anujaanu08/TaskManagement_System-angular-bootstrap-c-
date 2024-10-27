@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Backend",
+    "\\Backend\\TaskManagement",
+    "\\Backend\\TaskManagement\\Models"
+  ],
+  "SelectedNode": "\\Backend\\TaskManagement\\Models\\User.cs",
+  "PreviewInSolutionExplorer": false
+}

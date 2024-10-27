@@ -20,10 +20,15 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.gettasks();
+
   }
 
   gettasks() {
-    this.taskservice.getTasks().subscribe((option) => (this.tasks = option));
+    this.taskservice.getTasks().subscribe(option =>{
+      this.tasks = option
+      console.log(this.tasks);
+      
+    } )
   }
   
   Addtask() {

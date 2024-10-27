@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Task, TaskrServiceService } from '../taskr-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { User, UserService } from '../user.service';
 
 @Component({
   selector: 'app-edit-task',
@@ -12,11 +13,13 @@ import { ToastrService } from 'ngx-toastr';
 export class EditTaskComponent implements OnInit {
   taskform: FormGroup;
   taskid: any;
-
+  users: User[] = [];
+  
   constructor(
     private fb: FormBuilder,
     private taskService: TaskrServiceService,
     private route: ActivatedRoute,
+    private userService: UserService,
     private router: Router,
     private toastr:ToastrService
   ) {
@@ -28,10 +31,12 @@ export class EditTaskComponent implements OnInit {
       description: [''],
       dueDate: ['', [Validators.required]],
       priority: ['', [Validators.required]],
+      assigneeId: ['']
     });
   }
 
   ngOnInit(): void {
+    this.userService.getUsers().subscribe((data:User[]) => (this.users = data));
     this.taskService.getTask(this.taskid).subscribe(
       (data: any) => {
         let duedate = new Date(data.dueDate).toISOString().slice(0, 10);
@@ -42,6 +47,7 @@ export class EditTaskComponent implements OnInit {
           description: data.description,
           dueDate: duedate,
           priority: data.priority,
+          assigneeId:data.assigneeId
         });
       },
       (error) => {

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,7 @@ export  interface Task{
   title:string,
   description : string,
   dueDate : string,
-  priority : string
+  priority : string,
+  assigneeId:number,
+  assignee?:User;
 }
