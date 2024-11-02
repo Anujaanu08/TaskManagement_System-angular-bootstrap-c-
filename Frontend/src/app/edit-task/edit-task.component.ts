@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Task, TaskrServiceService } from '../taskr-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -31,15 +31,36 @@ export class EditTaskComponent implements OnInit {
       description: [''],
       dueDate: ['', [Validators.required]],
       priority: ['', [Validators.required]],
-      assigneeId: ['']
+      assigneeId: [''],
+      checklists:this.fb.array([])
     });
   }
 
+  get myChecklist(): FormArray{
+    return this.taskform.get("checklists") as FormArray
+    }
+    
+    addChecklist(){
+      this.myChecklist.push(this.fb.group({
+        name:[''],
+        isDone:[false]
+      }))
+    }
+    
+    removechecklist(index:number){
+      this.myChecklist.removeAt(index);
+    }
+    
   ngOnInit(): void {
     this.userService.getUsers().subscribe((data:User[]) => (this.users = data));
     this.taskService.getTask(this.taskid).subscribe(
-      (data: any) => {
+      (data: Task) => {
         let duedate = new Date(data.dueDate).toISOString().slice(0, 10);
+        
+        for (let index = 0; index < data.checklists.length; index++) {
+          const element =  data.checklists[index];
+          this.myChecklist.push(this.fb.group({id:element.id ,name:[element.name], isDone:[element.isDone], taskId:data.id}))
+         }
 
         this.taskform.patchValue({
           id: this.taskid,
@@ -47,8 +68,11 @@ export class EditTaskComponent implements OnInit {
           description: data.description,
           dueDate: duedate,
           priority: data.priority,
-          assigneeId:data.assigneeId
-        });
+          assigneeId:data.assigneeId,
+          checklists : this.myChecklist
+         });
+        
+        
       },
       (error) => {
         this.toastr.error('Task not found');

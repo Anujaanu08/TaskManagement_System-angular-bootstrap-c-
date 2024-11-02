@@ -15,7 +15,7 @@ return this.http.get<Task[]>(this.url);
 }
 
 getTask(taskId : number){
-  return this.http.get<Task[]>(this.url + "/" + taskId)
+  return this.http.get<Task>(this.url + "/" + taskId)
   }
 
 addTask(task:Task){
@@ -41,4 +41,12 @@ export  interface Task{
   priority : string,
   assigneeId:number,
   assignee?:User;
+  checklists:checklist[];
+}
+
+export interface checklist{
+  id:number;
+  name:string;
+  isDone:boolean;
+  taskId?:number;
 }

@@ -26,6 +26,12 @@ namespace TaskManagement.databae
                 .HasForeignKey(a => a.AssigneeId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<TaskItem>()
+                .HasMany(a => a.checklists)
+                .WithOne(u => u.Task)
+                .HasForeignKey(a => a.TaskId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             base.OnModelCreating(modelBuilder);
         }
 

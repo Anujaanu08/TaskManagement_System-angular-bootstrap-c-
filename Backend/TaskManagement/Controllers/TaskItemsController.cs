@@ -20,14 +20,14 @@ namespace TaskManagement.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TaskItem>>> Gettasks()
         {
-            return await _context.tasks.Include(a=>a.Assignee).ToListAsync();
+            return await _context.tasks.Include(a=>a.Assignee).Include(c=>c.checklists).ToListAsync();
         }
 
         // GET: api/TaskItems/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TaskItem>> GetTaskItem(int id)
         {
-            var taskItem = await _context.tasks.Include(i=>i.Assignee).FirstOrDefaultAsync(f=>f.Id == id);
+            var taskItem = await _context.tasks.Include(i=>i.Assignee).Include(c => c.checklists).FirstOrDefaultAsync(f=>f.Id == id);
 
             if (taskItem == null)
             {
@@ -48,6 +48,18 @@ namespace TaskManagement.Controllers
             }
 
             _context.Entry(taskItem).State = EntityState.Modified;
+
+            taskItem.checklists.ToList().ForEach(a =>
+            {
+                if (a.Id != 0)
+                {
+                    _context.Entry(a).State = EntityState.Modified;
+                } else
+                {
+                    _context.Entry(a).State = EntityState.Added;
+                }
+            });
+            
 
             try
             {

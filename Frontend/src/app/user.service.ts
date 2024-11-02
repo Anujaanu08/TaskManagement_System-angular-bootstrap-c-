@@ -17,7 +17,7 @@ return this.http.get<User[]>(this.url);
 }
 
 getUser(userId : number){
-  return this.http.get<User[]>(this.url + "/" + userId)
+  return this.http.get<User>(this.url + "/" + userId)
   }
 
 addUser(user:User){
@@ -39,12 +39,12 @@ export interface User{
   name:string;
   password:string;
   email:string;
-  address?:Address;
+  address:Address;
   tasks?:Task []
 }
 
 export interface Address{
-  id:Number;
+  id:number;
   addressline1:string;
   addressline2:string;
   city:string;

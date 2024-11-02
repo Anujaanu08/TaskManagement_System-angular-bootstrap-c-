@@ -1,7 +1,9 @@
-<div class="container mt-3 card col-4 shadow p-3 mb-5 bg-body-tertiary rounded">
-  <form [formGroup]="taskform" (ngSubmit)="onsubmit()">
-    
-    <div class="text-center"><h1>Update Task</h1></div>
+
+<form [formGroup]="taskform" (ngSubmit)="onsubmit()">
+  <div class="row mt-1">
+   <div class="text-center"><h1>Update Task</h1></div>
+
+   <div class="col-6">
     <div class="m-4">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -14,12 +16,10 @@
         <div
           *ngIf="taskform.controls['title'].touched"
           id="emailHelp"
-          class="form-text"
-        >
+          class="form-text">
           <p
             *ngIf="taskform.controls['title'].hasError('required')"
-            class="text-danger"
-          >
+            class="text-danger">
             Title is required
           </p>
         </div>
@@ -69,5 +69,16 @@
       <button type="submit" class="btn btn-primary">Submit</button>
       <button type="button"  class="btn btn-secondary ms-2" (click)="cancel()">Cancle</button>
     </div>
-  </form>
+  </div>
+  
+    <div formArrayName="checklists" class="col-6">
+      <div *ngFor="let ck of myChecklist.controls; let i=index" [formGroupName]="i" class="mb-3 d-flex">
+          <input class="form-check-input" type="checkbox" formControlName="isDone">
+          <input type="text" class="form-control" formControlName="name" />
+          <button type="button" class="btn btn-danger" (click)="removechecklist(i)">x</button>
+      </div>
+       <button type="button" class="btn-success btn" (click)="addChecklist()">Add</button>
+    </div>
+    
 </div>
+</form>

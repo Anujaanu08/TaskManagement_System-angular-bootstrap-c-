@@ -1,68 +1,99 @@
-<div class="container mt-3 card col-4 shadow p-3 mb-5 bg-body-tertiary rounded">
-  <form [formGroup]="taskform" (ngSubmit)="onsubmit()">
-      
-    <div class="text-center"><h1>Add new Task</h1></div>
-    <div class="m-4">
-      <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input
-          type="email"
-          class="form-control"
-          id="title"
-          formControlName="title"
-        />
-        <div *ngIf="taskform.controls['title'].touched" id="emailHelp" class="form-text">
-        <p *ngIf="taskform.controls['title'].hasError('required')" class="text-danger">Title is required</p>
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
-        <input
-          type="text"
-          class="form-control"
-          id="description"
-          formControlName="description"
-        />
-       </div>
-      <div class="mb-3">
-        <label for="dueDate" class="form-label">Due date</label>
-        <input
-          type="date"
-          class="form-control"
-          id="dueDate"
-          formControlName="dueDate"
-        />
-        <div *ngIf="taskform.controls['dueDate'].touched" id="emailHelp" class="form-text">
-          <p *ngIf="taskform.controls['dueDate'].hasError('required')" class="text-danger">DueDate is required</p>
-          </div>
-      </div>
-      <div class="mb-3">
-        <label for="Priority" class="form-label">Priority</label>
-        <select
-          name="Priority"
-          id="Priority"
-          class="form-control"
-          formControlName="priority"
-        >
-          <option value="high" >High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
-      </div>
 
-      <div class="mb-3">
-        <label for="assigneeId" class="form-label">Assignee </label>
-        <select
-          name="assigneeId"
-          id="assigneeId"
-          class="form-control"
-          formControlName="assigneeId" >
-          <option *ngFor="let user of users" value="{{user.id}}" >{{user.name}}</option>
-        </select>
+  <form [formGroup]="taskform" (ngSubmit)="onsubmit()">
+    <div class="row mt-1">
+    <div class="text-center"><h1>Add new Task</h1></div>
+
+    <div class="col-6">
+      <div class="m-4">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="email" class="form-control" id="title" formControlName="title"/>
+          <div *ngIf="taskform.controls['title'].touched" id="emailHelp" class="form-text">
+            <p *ngIf="taskform.controls['title'].hasError('required')" class="text-danger">Title is required </p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            formControlName="description"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="dueDate" class="form-label">Due date</label>
+          <!-- <input
+            type="date"
+            class="form-control"
+            id="dueDate"
+            formControlName="dueDate"
+          /> -->
+          <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsConfig]="{ isAnimated: true }"  formControlName="dueDate" >
+                  
+          <div
+            *ngIf="taskform.controls['dueDate'].touched"
+            id="emailHelp"
+            class="form-text"
+          >
+            <p
+              *ngIf="taskform.controls['dueDate'].hasError('required')"
+              class="text-danger"
+            >
+              DueDate is required
+            </p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="Priority" class="form-label">Priority</label>
+          <select
+            name="Priority"
+            id="Priority"
+            class="form-control"
+            formControlName="priority"
+          >
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="assigneeId" class="form-label">Assignee </label>
+          <select
+            name="assigneeId"
+            id="assigneeId"
+            class="form-control"
+            formControlName="assigneeId"
+          >
+            <option *ngFor="let user of users" value="{{ user.id }}">
+              {{ user.name }}
+            </option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="taskform.invalid"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
+        <button type="button" class="btn btn-secondary ms-2" (click)="cancel()">
+          Cancel
+        </button>
       </div>
-      <button type="submit" [disabled]="taskform.invalid" class="btn btn-primary ">Submit</button>
-      <button type="button"  class="btn btn-secondary ms-2" (click)="cancel()">Cancle</button>
+    </div>
+
+     <div formArrayName="checklists" class="col-6">
+        <div *ngFor="let ck of myChecklist.controls; let i=index" [formGroupName]="i" class="mb-3 d-flex">
+            <input class="form-check-input" type="checkbox" formControlName="isDone">
+            <input type="text" class="form-control" formControlName="name" />
+            <button type="button" class="btn btn-danger" (click)="removechecklist(i)">x</button>
+        </div>
+         <button type="button" class="btn-success btn" (click)="addChecklist()">Add</button>
+      </div>
 
     </div>
   </form>
-</div>
+

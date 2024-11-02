@@ -54,7 +54,7 @@ export class UserFormComponent implements OnInit {
               addressline1: data.address.addressline1,
               addressline2: data.address.addressline2,
               city: data.address.city,
-            },
+            }
           });
           this.tasks = data.tasks;
           this.addressid = data.address.id;
@@ -75,8 +75,8 @@ export class UserFormComponent implements OnInit {
     if (this.isEdit) {
       const user: User = this.userform.value;
       user.id = this.userid;
-      // user.address.id = this.addressid;
-      // user.address.userId = this.userid;
+      user.address.id = this.addressid;
+      user.address.userId = this.userid;
 
       this.userService.edituser(user).subscribe((data) => {
         this.toastr.success('User updated successfully...');

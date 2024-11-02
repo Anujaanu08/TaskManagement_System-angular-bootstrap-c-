@@ -16,6 +16,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UsersearchPipe } from './usersearch.pipe';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 
 @NgModule({
@@ -27,16 +30,21 @@ import { UsersearchPipe } from './usersearch.pipe';
     EditTaskComponent,
     UserListComponent,
     UserFormComponent,
-    UsersearchPipe,
+    UsersearchPipe
+   
     ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,CommonModule,ReactiveFormsModule,FormsModule, BrowserAnimationsModule, 
+    AppRoutingModule,HttpClientModule,CommonModule,ReactiveFormsModule,FormsModule, BrowserAnimationsModule,  BrowserAnimationsModule,AlertModule,
+    BsDatepickerModule,
+    TooltipModule.forRoot(),
     ToastrModule.forRoot({
       closeButton:true,
       positionClass: 'toast-top-center',
       preventDuplicates: true,
-    }) 
+    }),
+    BsDatepickerModule.forRoot(),
+    AlertModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]
