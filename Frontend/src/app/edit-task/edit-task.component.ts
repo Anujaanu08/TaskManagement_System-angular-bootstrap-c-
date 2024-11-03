@@ -82,14 +82,14 @@ export class EditTaskComponent implements OnInit {
 
   cancel() {
     this.taskform.reset();
-    this.router.navigate(['/'])
+    this.router.navigate(['/tasks'])
      }
 
   onsubmit() {
     const task = this.taskform.value;
     this.taskService.edittask(task).subscribe(data=>{
       this.toastr.success("updted successfully ...")
-      this.router.navigate(["/"]);
+      this.router.navigate(["/tasks"]);
     }
     );
     

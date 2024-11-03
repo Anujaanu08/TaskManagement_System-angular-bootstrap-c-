@@ -53,13 +53,13 @@ removechecklist(index:number){
 
   cancel() {
     this.taskform.reset();
-    this.router.navigate(['/']);
+    this.router.navigate(['/tasks']);
   }
 
   onsubmit() {
     this.taskService
       .addTask(this.taskform.value)
       .subscribe((data) => this.toastr.success('task added successfully'));
-    this.router.navigate(['/']);
+    this.router.navigate(['/tasks']);
   }
 }

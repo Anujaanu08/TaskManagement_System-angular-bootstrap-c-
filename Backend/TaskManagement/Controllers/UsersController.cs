@@ -1,16 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 using TaskManagement.databae;
 using TaskManagement.Models;
 
 namespace TaskManagement.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly TaskDbContext _context;
-
+      
         public UsersController(TaskDbContext context)
         {
             _context = context;
@@ -46,10 +51,8 @@ namespace TaskManagement.Controllers
             {
                 return BadRequest();
             }
-
             _context.Entry<User>(user).State = EntityState.Modified;
             _context.Entry<Address>(user.Address).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -65,7 +68,6 @@ namespace TaskManagement.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
@@ -74,11 +76,13 @@ namespace TaskManagement.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+           user.password = BCrypt.Net.BCrypt.HashPassword(user.password);
             _context.users.Add(user);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUser", new { id = user.id }, user);
         }
+            
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]

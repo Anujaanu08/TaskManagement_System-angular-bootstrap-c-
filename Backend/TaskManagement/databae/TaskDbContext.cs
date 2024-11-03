@@ -5,12 +5,13 @@ namespace TaskManagement.databae
 {
     public class TaskDbContext : DbContext
     {
-        public TaskDbContext(DbContextOptions options) : base(options)
+        public TaskDbContext(DbContextOptions<TaskDbContext> options) : base(options)
         {
         }
 
         public DbSet<TaskItem> tasks { get; set; }
         public DbSet<User> users { get; set; }
+        public DbSet<UserLogin> userlogin { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

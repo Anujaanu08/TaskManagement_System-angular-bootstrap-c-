@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using TaskManagement.databae;
+using TaskManagement.repository;
+using TaskManagement.service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +24,18 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<TaskDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<UserLoginRepository>();
+builder.Services.AddScoped<UserLoginService>();
+
+builder.Services.AddAuthentication().AddJwtBearer(opt=>
+opt.TokenValidationParameters=new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+{
+    ValidIssuer = builder.Configuration["JWT:Issuer"],
+    ValidAudience = builder.Configuration["JWT:Audience"],
+    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["JWT:Key"]))
+});
+
+
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("AllowAllOrigins",
@@ -30,7 +46,6 @@ builder.Services.AddCors(opt =>
         .AllowAnyHeader();
       });
 });
-
 
 
 var app = builder.Build();

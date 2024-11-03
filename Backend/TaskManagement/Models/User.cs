@@ -2,6 +2,8 @@
 
 namespace TaskManagement.Models
 {
+
+    
     public class User
     {
         [Key]

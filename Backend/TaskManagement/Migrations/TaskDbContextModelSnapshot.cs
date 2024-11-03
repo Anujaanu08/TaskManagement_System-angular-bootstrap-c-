@@ -110,6 +110,32 @@ namespace TaskManagement.Migrations
                     b.ToTable("users");
                 });
 
+            modelBuilder.Entity("TaskManagement.Models.UserLogin", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("userlogin");
+                });
+
             modelBuilder.Entity("TaskManagement.Models.checklist", b =>
                 {
                     b.Property<int>("Id")

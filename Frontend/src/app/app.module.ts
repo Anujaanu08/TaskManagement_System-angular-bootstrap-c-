@@ -19,6 +19,9 @@ import { UsersearchPipe } from './usersearch.pipe';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     EditTaskComponent,
     UserListComponent,
     UserFormComponent,
-    UsersearchPipe
+    UsersearchPipe,
+    RegisterComponent,
+    LoginComponent,
+    HomeComponent
    
     ],
   imports: [
